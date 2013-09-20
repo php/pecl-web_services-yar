@@ -26,7 +26,12 @@
 #include "php.h"
 #include "php_yar.h"
 #include "yar_protocol.h"
-#include <arpa/inet.h>
+#ifdef PHP_WIN32
+# include <winsock2.h>
+# include <ws2tcpip.h>
+#else
+# include <arpa/inet.h>
+#endif
 
 void php_yar_protocol_render(yar_header_t *header, uint id, char *provider, char *token, uint body_len, uint reserved TSRMLS_DC) /* {{{ */ {
 	header->magic_num = htonl(YAR_PROTOCOL_MAGIC_NUM);
