@@ -44,7 +44,7 @@ zval * php_yar_packager_json_unpack(yar_packager_t *self, char *content, size_t 
 #if ((PHP_MAJOR_VERSION == 5) && (PHP_MINOR_VERSION < 3))
 	php_json_decode(return_value, content, len, 1 TSRMLS_CC);
 #else
-	php_json_decode(return_value, content, len, 1, 512 TSRMLS_CC);
+	php_json_decode_ex(return_value, content, len, 1, 512 TSRMLS_CC);
 #endif
 
 	return return_value;
