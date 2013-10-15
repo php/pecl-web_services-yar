@@ -87,7 +87,7 @@ ZEND_END_ARG_INFO()
 	"  </script>\n" \
 	" </head>\n" \
 	" <body>\n" \
-	" <!-- powered by yar-" YAR_VERSION " -->\n"
+	" <!-- powered by yar-" PHP_YAR_VERSION " -->\n"
 
 #define HTML_MARKUP_TITLE \
 	" <h1>Yar Server: %s</h1>"
@@ -424,7 +424,7 @@ static void php_yar_server_handle(zval *obj TSRMLS_DC) /* {{{ */ {
 
 	if (YAR_G(debug)) {
 		php_yar_debug_server("%ld: accpect rpc request form '%s'",
-				header->id, header->provider? (char *)header->provider : "Yar PHP " YAR_VERSION);
+				header->id, header->provider? (char *)header->provider : "Yar PHP " PHP_YAR_VERSION);
 	}
 
 	if (!(post_data = php_yar_packager_unpack(payload, payload_len, &err_msg TSRMLS_CC))) {

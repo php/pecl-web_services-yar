@@ -241,7 +241,7 @@ yar_transport_interface_t * php_yar_curl_init(TSRMLS_D) /* {{{ */ {
 	self->data = data = ecalloc(1, sizeof(yar_curl_data_t));
 
 	data->headers = curl_slist_append(data->headers, "Content-Type: application/octet-stream");
-	data->headers = curl_slist_append(data->headers, "User-Agent: PHP Yar Rpc-" YAR_VERSION);
+	data->headers = curl_slist_append(data->headers, "User-Agent: PHP Yar Rpc-" PHP_YAR_VERSION);
 	data->headers = curl_slist_append(data->headers, "Expect:");
 	data->headers = curl_slist_append(data->headers, "Connection: close");
 
